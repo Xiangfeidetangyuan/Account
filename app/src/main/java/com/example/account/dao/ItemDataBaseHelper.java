@@ -35,11 +35,15 @@ public class ItemDataBaseHelper {
 
         public DBOpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_TABLE);
+
+
         }
 
         @Override
@@ -57,6 +61,41 @@ public class ItemDataBaseHelper {
     public ItemDataBaseHelper(Context context) {
         helper = new DBOpenHelper(context);
         db = helper.getWritableDatabase();
+
+
+        //init data
+        initData();
+
+
+    }
+
+    private  void initData(){
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624522087589,2.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1621868461000,1.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624523087589,12.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1621865461000,222.0,\"真开心\")");
+
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1624522087589,2.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1621868461000,1.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1624523087589,12.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1621865461000,222.0,\"真开心\")");
+
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1619522087589,2.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1619868461000,1.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1619523087589,12.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1619865461000,222.0,\"真开心\")");
+
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619522087589,2.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619868461000,1.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619523087589,12.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619865461000,222.0,\"真开心\")");
+
+
+
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619543087589,2.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619864361000,1.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619524387589,12.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1619864361000,222.0,\"真开心\")");
     }
 
     //插入 条目到数据库
@@ -91,13 +130,13 @@ public class ItemDataBaseHelper {
         return items;
     }
 
-    //查询    一个月的  记录
+    //查询一个月的账单记录
     public List<Item> queryItemByMonth(int year,int month) {
         long startTime = DateUtil.getStartTimeStampByMonth(year,month);
         long endTime = DateUtil.getEndTimeStampByMonth(year,month);
         Log.d("TAG",startTime+":"+endTime);
         List<Item> items = new ArrayList<>();
-        String sql ="select * from"+TABLE_NAME+" where "+ TIME + " between " + startTime + " and " + " endTime ";
+        String sql ="select * from "+TABLE_NAME+" where "+ TIME + " between " + startTime + " and " + endTime;
         Cursor cursor = db.rawQuery(sql,null);
         while (cursor.moveToNext()) {
             Item item = new Item();
@@ -118,7 +157,7 @@ public class ItemDataBaseHelper {
         long endTime = DateUtil.getEndTimeStampByDay(year,month,day);
         Log.d("TAG",startTime+":"+endTime);
         List<Item> items = new ArrayList<>();
-        String sql ="select * from"+TABLE_NAME+" where "+ TIME + " between " + startTime + " and " + " endTime ";
+        String sql ="select * from "+TABLE_NAME+" where "+ TIME + " between " + startTime + " and " +  endTime;
         Cursor cursor = db.rawQuery(sql,null);
         while (cursor.moveToNext()) {
             Item item = new Item();
