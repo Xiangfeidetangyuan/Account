@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.account.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.account.entity.Item;
 import com.example.account.util.DateUtil;
 
 import java.util.ArrayList;

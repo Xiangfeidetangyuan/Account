@@ -11,10 +11,11 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.math.BigDecimal;
+import com.example.account.dao.ItemDataBaseHelper;
+import com.example.account.entity.Item;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

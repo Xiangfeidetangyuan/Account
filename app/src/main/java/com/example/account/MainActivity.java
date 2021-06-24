@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.account.dao.ItemDataBaseHelper;
 import com.example.account.util.DateUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent();
-                intent.setClass(MainActivity.this,add.class);
+               // intent.setClass(MainActivity.this,add.class);
+                intent.setClass(MainActivity.this,loginActivity.class);
                 startActivity(intent);
                 finish();
             }

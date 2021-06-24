@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.account.entity;
 
 public class Item {
     private boolean IsIncome;// 是否为收入  1 为收入、 0 为 支出
