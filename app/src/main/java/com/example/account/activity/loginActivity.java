@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.account.R;
-import com.example.account.dao.UserDBOpenHelper;
+import com.example.account.dao.UserDataBaseOpenHelper;
 import com.example.account.entity.User;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
      * 声明自己写的 DBOpenHelper 对象
      * DBOpenHelper(extends SQLiteOpenHelper) 主要用来创建数据表，然后再进行数据表的增、删、改、查操作
      */
-    private UserDBOpenHelper mUserDBOpenHelper;
+    private UserDataBaseOpenHelper mUserDataBaseOpenHelper;
     private TextView mTvLoginactivityRegister;
     private RelativeLayout mRlLoginactivityTop;
     private EditText mEtLoginactivityUsername;
@@ -43,7 +43,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
         initView();
 
-        mUserDBOpenHelper = new UserDBOpenHelper(this);
+        mUserDataBaseOpenHelper = new UserDataBaseOpenHelper(this);
     }
 
 
@@ -79,7 +79,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                 String name = mEtLoginactivityUsername.getText().toString().trim();
                 String password = mEtLoginactivityPassword.getText().toString().trim();
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
-                    ArrayList<User> data = mUserDBOpenHelper.getAllData();
+                    ArrayList<User> data = mUserDataBaseOpenHelper.getAllData();
                     boolean match = false;
                     for (int i = 0; i < data.size(); i++) {
                         User user = data.get(i);

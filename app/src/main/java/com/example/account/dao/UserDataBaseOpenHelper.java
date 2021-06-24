@@ -11,7 +11,7 @@ import com.example.account.entity.User;
 import java.util.ArrayList;
 
 
-public class UserDBOpenHelper extends SQLiteOpenHelper {
+public class UserDataBaseOpenHelper extends SQLiteOpenHelper {
     /**
      * 声明一个AndroidSDK自带的数据库变量db
      */
@@ -22,7 +22,7 @@ public class UserDBOpenHelper extends SQLiteOpenHelper {
      * 指明上下文，数据库名，工厂默认空值，版本号默认从1开始
      * 把数据库设置成可写入状态
      */
-    public UserDBOpenHelper(Context context){
+    public UserDataBaseOpenHelper(Context context){
         super(context,"db_test",null,1);
         db = getReadableDatabase();
     }

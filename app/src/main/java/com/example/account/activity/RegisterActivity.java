@@ -15,7 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.account.R;
-import com.example.account.dao.UserDBOpenHelper;
+import com.example.account.dao.UserDataBaseOpenHelper;
 
 /**
  * 此类 implements View.OnClickListener 之后，就可以把onClick事件写到onCreate()方法之外，这样，onCreate()方法中的代码就不会显得很冗余。
@@ -23,7 +23,7 @@ import com.example.account.dao.UserDBOpenHelper;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private UserDBOpenHelper mUserDBOpenHelper;
+    private UserDataBaseOpenHelper mUserDataBaseOpenHelper;
     private Button mBtRegisteractivityRegister;
     private RelativeLayout mRlRegisteractivityTop;
     private ImageView mIvRegisteractivityBack;
@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         initView();
 
-        mUserDBOpenHelper = new UserDBOpenHelper(this);
+        mUserDataBaseOpenHelper = new UserDataBaseOpenHelper(this);
 
 
     }
@@ -81,7 +81,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && password1.equals(password2)) {
                 {
                         //将用户名和密码加入到数据库中
-                        mUserDBOpenHelper.add(username, password);
+                        mUserDataBaseOpenHelper.add(username, password);
                         Intent intent2 = new Intent(this, MainActivity.class);
                         startActivity(intent2);
                         finish();
