@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.account.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.account.R;
 import com.example.account.dao.ItemDataBaseHelper;
 import com.example.account.util.DateUtil;
 

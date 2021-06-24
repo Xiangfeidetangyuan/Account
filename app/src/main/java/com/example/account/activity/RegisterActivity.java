@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.account.activity;
 
 
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.account.R;
 import com.example.account.dao.UserDBOpenHelper;
 
 /**

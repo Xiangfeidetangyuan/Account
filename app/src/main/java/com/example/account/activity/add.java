@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.account.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.account.R;
 import com.example.account.dao.ItemDataBaseHelper;
 import com.example.account.entity.Item;
 
