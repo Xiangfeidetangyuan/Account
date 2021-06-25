@@ -1,5 +1,6 @@
 package com.example.account.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -58,5 +59,14 @@ public class MouthlyActivity extends AppCompatActivity {
         tvIncomingTotal = findViewById(R.id.tv_incomings);
         tvOutgoingTotal = findViewById(R.id.tv_outgoings);
         rvMounthItem = findViewById(R.id.rv_mounthly);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent  = new Intent();
+        intent.setClass(MouthlyActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

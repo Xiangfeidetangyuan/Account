@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.account">
-
+    <uses-permission android:name="android.permission.SET_ALARM" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +21,10 @@
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.showActivity"/>
         <activity android:name=".activity.MouthlyActivity"/>
+        <activity android:name=".activity.AlarmActivity"
+            android:label="闹钟"/>
+        <activity android:name=".activity.MyActivity" />
+
     </application>
 
 </manifest>

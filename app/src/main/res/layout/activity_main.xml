@@ -12,29 +12,40 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="132dp"
         android:text="爱记账"
-        android:textSize="48dp" />
+        android:textSize="46dp" />
 
     <Button
         android:id="@+id/btn_query"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="149dp"
+        android:layout_marginEnd="140dp"
         android:layout_marginBottom="476dp"
         android:text="查询"
-        android:textSize="48dp" />
+        android:textSize="36dp" />
 
     <Button
         android:id="@+id/btn_monthly"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="141dp"
+        android:layout_marginEnd="140dp"
         android:layout_marginBottom="351dp"
         android:text="月度"
-        android:textSize="48dp" />
+        android:textSize="36dp" />
+
+    <Button
+        android:id="@+id/btn_my"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="224dp"
+        android:text="我的"
+        android:textSize="36dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add"

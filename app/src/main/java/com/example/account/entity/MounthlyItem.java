@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class MounthlyItem {
     private int year;
+    private boolean isUpdated=true;
     private ArrayList<Item> originData;
     private Map<Integer, List<Item>> itemByMounth;
     private Map<Integer,Integer> incomingTotals;
@@ -29,10 +30,8 @@ public class MounthlyItem {
     }
 
     public List<Item> getDataByMounth(Integer mounth){
-        Log.d("TAGSS",itemDataBaseHelper.queryItemByMonth(year,mounth).toString());
-        if(itemByMounth.get(mounth)==null)
+        if(isUpdated)
         itemByMounth.put(mounth,itemDataBaseHelper.queryItemByMonth(year,mounth));
-        Log.d("TAGSS",itemByMounth.get(mounth).toString());
         return itemByMounth.get(mounth);
     }
     public double getIncomingByMounth(Integer mounth){

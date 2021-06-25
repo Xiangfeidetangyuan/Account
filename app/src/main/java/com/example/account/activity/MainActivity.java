@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btn_query;
     private  Button btn_monthly;
+    private Button   btn_my;
     private FloatingActionButton btn_add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_my = findViewById(R.id.btn_my);
+        btn_my.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent();
+                intent.setClass(MainActivity.this,MyActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 }
