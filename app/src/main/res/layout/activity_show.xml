@@ -9,8 +9,9 @@
 
     <Button
         android:id="@+id/choosebt"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="日期选择"
         android:background="@drawable/selector_loginactivity_button"
         android:textSize="20sp" />
