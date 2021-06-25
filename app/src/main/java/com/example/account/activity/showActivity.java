@@ -2,9 +2,12 @@ package com.example.account.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -28,6 +31,7 @@ public class showActivity extends AppCompatActivity {
     ImageButton l,r;
     ItemDataBaseHelper idbh;
     int yearin,monthin,dayin;
+    String note;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,14 @@ public class showActivity extends AppCompatActivity {
                 idbh=new ItemDataBaseHelper(showActivity.this);
                 mList=idbh.queryItemByDay(yearin,monthin,dayin);
                 listView.setAdapter(new ListAdapter(showActivity.this,mList));
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView tv=view.findViewById(R.id.tv_note);
+                        note=tv.getText().toString();
+                        tipDialog(note);
+                    }
+                });
             }
         });
         r.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +77,15 @@ public class showActivity extends AppCompatActivity {
                 idbh=new ItemDataBaseHelper(showActivity.this);
                 mList=idbh.queryItemByDay(yearin,monthin,dayin);
                 listView.setAdapter(new ListAdapter(showActivity.this,mList));
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView tv=view.findViewById(R.id.tv_note);
+                        note=tv.getText().toString();
+                        tipDialog(note);
+
+                    }
+                });
             }
         });
     }
@@ -102,11 +123,40 @@ public class showActivity extends AppCompatActivity {
                 idbh=new ItemDataBaseHelper(showActivity.this);
                 mList=idbh.queryItemByDay(yearin,monthin,dayin);
                 listView.setAdapter(new ListAdapter(showActivity.this,mList));
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        TextView tv=view.findViewById(R.id.tv_note);
+                        note=tv.getText().toString();
+                        tipDialog(note);
+
+                    }
+                });
+
             }
         }, mYear,mMonth, mDay);//将年月日放入DatePickerDialog中，并将值传给参数
 
         datePickerDialog.show();//显示dialog
 
+    }
+    public void tipDialog(String s) {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(showActivity.this);
+        builder.setTitle("账单详情：");
+        builder.setMessage(s);
+        builder.setIcon(R.drawable.advise);
+        builder.setCancelable(true);            //点击对话框以外的区域是否让对话框消失
+
+        //设置正面按钮
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+
+        AlertDialog dialog = builder.create();      //创建AlertDialog对象
+        dialog.show();                              //显示对话框
     }
 
 }
