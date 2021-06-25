@@ -1,4 +1,4 @@
-package com.example.account;
+package com.example.account.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.account.R;
 import com.example.account.entity.Item;
 import com.example.account.util.DateUtil;
 
@@ -40,15 +41,20 @@ public class ListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view=mLayoutInflater.inflate(R.layout.list_item,null);
         //取出数据赋值
-       Item item=mList.get(position);
+        Item item=mList.get(position);
         TextView tv_title=view.findViewById(R.id.tv_title);
         TextView tv_date=view.findViewById(R.id.tv_date);
         TextView tv_money=view.findViewById(R.id.tv_money);
+        TextView iscost=view.findViewById(R.id.tv_type);
         //绑定
+        if(mList.get(position).isIncome()){
+            iscost.setText("收入");
+        }
+        else{
+            iscost.setText("支出");
+        }
         tv_title.setText(mList.get(position).getType());
-
-        //时间处理
-        tv_date.setText(""+ DateUtil.timeStamp_Date(mList.get(position).getTime(),"MM-dd HH:mm"));
+        tv_date.setText(DateUtil.timeStamp_Date(mList.get(position).getTime(),"MM-dd HH:mm"));
         tv_money.setText(""+mList.get(position).getPrice());
         return view;
 

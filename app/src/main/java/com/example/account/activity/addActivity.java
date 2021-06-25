@@ -139,7 +139,7 @@ public class addActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                     helper.insert(item);
+                    helper.insert(item);
 
                     /*******************************************/
                     /*****************写入数据库函数*************/
