@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText mEtRegisteractivityPassword2;
     private RelativeLayout mRlRegisteractivityBottom;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
