@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Account">
         <activity android:name=".activity.MainActivity">
         </activity>
-        <activity android:name=".activity.add" />
+        <activity android:name=".activity.addActivity" />
         <activity android:name=".activity.loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RegisterActivity"/>
+        <activity android:name=".activity.showActivity"/>
     </application>
 
 </manifest>

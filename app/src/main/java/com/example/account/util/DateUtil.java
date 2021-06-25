@@ -108,4 +108,18 @@ public class DateUtil {
         return c.getTimeInMillis();
     }
 
+    public static int getCurrentYear(){
+        return new Date().getYear()  + 1900;
+    }
+
+    public static int getCurrentMonth(){
+        Date nowtime = new Date();     //获取当前月份
+        return nowtime.getMonth()+1;
+    }
+    public static int getCurrentDay(){
+        Date nowtime = new Date();     //获取当前日期
+        return nowtime.getDate();
+    }
+
+
 }
