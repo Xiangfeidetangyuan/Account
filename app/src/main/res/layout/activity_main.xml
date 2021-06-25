@@ -25,6 +25,17 @@
         android:text="查询"
         android:textSize="48dp" />
 
+    <Button
+        android:id="@+id/btn_monthly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="351dp"
+        android:text="月度"
+        android:textSize="48dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"

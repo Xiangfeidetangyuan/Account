@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.account.R;
+import com.example.account.adapter.MonthlyAccountAdapter;
 import com.example.account.dao.ItemDataBaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_query;
+    private  Button btn_monthly;
     private FloatingActionButton btn_add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent  = new Intent();
                 intent.setClass(MainActivity.this, addActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btn_monthly = findViewById(R.id.btn_monthly);
+        btn_monthly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent();
+                intent.setClass(MainActivity.this, MouthlyActivity.class);
                 startActivity(intent);
                 finish();
             }

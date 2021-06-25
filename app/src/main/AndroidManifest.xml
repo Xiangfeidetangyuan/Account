@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.showActivity"/>
+        <activity android:name=".activity.MouthlyActivity"/>
     </application>
 
 </manifest>
