@@ -22,12 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.showActivity" />
-        <activity android:name=".activity.MouthlyActivity" />
-        <activity
-            android:name=".activity.AlarmActivity"
-            android:label="闹钟" />
-        <activity android:name=".activity.MyActivity" />
+
     </application>
 
 </manifest>

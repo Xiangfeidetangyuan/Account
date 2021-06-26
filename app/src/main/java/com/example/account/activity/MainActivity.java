@@ -2,6 +2,8 @@ package com.example.account.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,71 +15,32 @@ import android.widget.Toast;
 import com.example.account.R;
 import com.example.account.adapter.MonthlyAccountAdapter;
 import com.example.account.dao.ItemDataBaseHelper;
+import com.example.account.fragment.MyFragment;
+import com.example.account.fragment.montlyFragment;
+import com.example.account.fragment.showFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.PrimitiveIterator;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_query;
-    private  Button btn_monthly;
-    private Button   btn_my;
-    private FloatingActionButton btn_add;
+
+    private Fragment fragment_show,fragment_monthly,fragment_person;
+    private Fragment[] fragments;
+    private int lastfragment;//用于记录上个选择的Fragment
     private BottomNavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initFragment();
+
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
-
-        btn_query = findViewById(R.id.btn_query);
-        btn_query.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent();
-                intent.setClass(MainActivity.this,showActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        ItemDataBaseHelper helper = new ItemDataBaseHelper(this);
-
-        btn_add = findViewById(R.id.btn_add);
-        btn_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent();
-                intent.setClass(MainActivity.this, addActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        btn_monthly = findViewById(R.id.btn_monthly);
-        btn_monthly.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent();
-                intent.setClass(MainActivity.this, MouthlyActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        btn_my = findViewById(R.id.btn_my);
-        btn_my.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent();
-                intent.setClass(MainActivity.this,MyActivity.class);
-                intent.putExtra("username",username);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         navigationView  = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -85,15 +48,56 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.navigation_home:
-                        Toast.makeText(MainActivity.this,"home",Toast.LENGTH_SHORT).show();
+                        if(lastfragment!=0)
+                        {
+                            switchFragment(lastfragment,0);
+                            lastfragment=0;
+                        }
+
                         return true;
                     case R.id.navigation_monthly:
-                        break;
+                        if(lastfragment!=1)
+                        {
+                            switchFragment(lastfragment,1);
+                            lastfragment=1;
+                        }
+
+                        return true;
                     case R.id.navigation_person:
-                        break;
+                        if(lastfragment!=2)
+                        {
+                            switchFragment(lastfragment,2);
+                            lastfragment=2;
+                        }
+
+                        return true;
                 }
                 return false;
             }
         });
+    }
+
+    private void initFragment() {
+       fragment_show = new showFragment();
+        fragment_monthly = new montlyFragment();
+        fragment_person = new MyFragment();
+        fragments = new Fragment[]{fragment_show,fragment_monthly,fragment_person};
+        lastfragment=0;
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainview,fragment_show).show(fragment_show).commit();
+
+
+    }
+    //切换Fragment
+    private void switchFragment(int lastfragment,int index)
+    {
+        FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+        transaction.hide(fragments[lastfragment]);//隐藏上个Fragment
+        if(fragments[index].isAdded()==false)
+        {
+            transaction.add(R.id.mainview,fragments[index]);
+        }
+        transaction.show(fragments[index]).commitAllowingStateLoss();
+
+
     }
 }
