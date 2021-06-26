@@ -46,9 +46,6 @@ public class ChangeActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(ChangeActivity.this,MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -98,9 +95,6 @@ public class ChangeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent();
-        intent.setClass(ChangeActivity.this,MainActivity.class);
-        startActivity(intent);
         finish();
     }
 
