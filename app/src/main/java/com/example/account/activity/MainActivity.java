@@ -1,16 +1,22 @@
 package com.example.account.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.account.R;
 import com.example.account.adapter.MonthlyAccountAdapter;
 import com.example.account.dao.ItemDataBaseHelper;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private  Button btn_monthly;
     private Button   btn_my;
     private FloatingActionButton btn_add;
+    private BottomNavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,5 +75,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        navigationView  = findViewById(R.id.navigation);
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.navigation_home:
+                        Toast.makeText(MainActivity.this,"home",Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.navigation_monthly:
+                        break;
+                    case R.id.navigation_person:
+                        break;
+                }
+                return false;
+            }
+        });
     }
 }
