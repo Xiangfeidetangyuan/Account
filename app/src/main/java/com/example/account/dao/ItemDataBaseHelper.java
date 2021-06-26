@@ -135,7 +135,6 @@ public class ItemDataBaseHelper {
             item.setType(cursor.getString(cursor.getColumnIndex(TYPE)));
             item.setIncome(cursor.getInt(cursor.getColumnIndex(ISINCOME)) == 1);
             item.setTime(cursor.getLong(cursor.getColumnIndex(TIME)));
-            item.setRemark(cursor.getString(cursor.getColumnIndex(REMARK)));
             items.add(item);
         }
         cursor.close();
@@ -147,6 +146,7 @@ public class ItemDataBaseHelper {
     public List<Item> queryItemByMonth(int year,int month) {
         long startTime = DateUtil.getStartTimeStampByMonth(year,month);
         long endTime = DateUtil.getEndTimeStampByMonth(year,month);
+        Log.d("TAG",startTime+":"+endTime);
         List<Item> items = new ArrayList<>();
         String sql ="select * from "+TABLE_NAME+" where "+ TIME + " between " + startTime + " and " + endTime+ " order by " + TIME;
         Cursor cursor = db.rawQuery(sql,null);
@@ -157,7 +157,6 @@ public class ItemDataBaseHelper {
             item.setType(cursor.getString(cursor.getColumnIndex(TYPE)));
             item.setIncome(cursor.getInt(cursor.getColumnIndex(ISINCOME)) == 1);
             item.setTime(cursor.getLong(cursor.getColumnIndex(TIME)));
-            item.setRemark(cursor.getString(cursor.getColumnIndex(REMARK)));
             items.add(item);
         }
         cursor.close();

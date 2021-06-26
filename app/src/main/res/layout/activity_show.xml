@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/choosebt"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="日期选择"
@@ -21,7 +21,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="100dp"
             android:id="@+id/lfbt"
             android:src="@drawable/left2" />
@@ -32,7 +32,7 @@
             android:layout_height="80dp"
             android:gravity="center" />
         <ImageButton
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="100dp"
             android:id="@+id/rgbt"
             android:src="@drawable/right" />

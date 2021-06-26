@@ -45,7 +45,6 @@ public class ListAdapter extends BaseAdapter {
         TextView tv_title=view.findViewById(R.id.tv_title);
         TextView tv_date=view.findViewById(R.id.tv_date);
         TextView tv_money=view.findViewById(R.id.tv_money);
-        TextView tv_note=view.findViewById(R.id.tv_note);
         TextView iscost=view.findViewById(R.id.tv_type);
         //绑定
         if(mList.get(position).isIncome()){
@@ -57,7 +56,6 @@ public class ListAdapter extends BaseAdapter {
         tv_title.setText(mList.get(position).getType());
         tv_date.setText(DateUtil.timeStamp_Date(mList.get(position).getTime(),"MM-dd HH:mm"));
         tv_money.setText(""+mList.get(position).getPrice());
-        tv_note.setText(mList.get(position).getRemark());
         return view;
 
     }
