@@ -14,6 +14,9 @@
         <activity android:name=".activity.ChangeActivity"></activity>
         <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.addActivity" />
+        <activity
+            android:name=".activity.AlarmActivity"
+            android:label="闹钟" />
         <activity android:name=".activity.loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
