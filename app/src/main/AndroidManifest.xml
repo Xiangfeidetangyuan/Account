@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.account">
+
     <uses-permission android:name="android.permission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/account"
@@ -9,22 +11,23 @@
         android:roundIcon="@drawable/account"
         android:supportsRtl="true"
         android:theme="@style/Theme.Account">
-        <activity android:name=".activity.MainActivity">
-        </activity>
+        <activity android:name=".activity.ChangeActivity"></activity>
+        <activity android:name=".activity.MainActivity"></activity>
         <activity android:name=".activity.addActivity" />
         <activity android:name=".activity.loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegisterActivity"/>
-        <activity android:name=".activity.showActivity"/>
-        <activity android:name=".activity.MouthlyActivity"/>
-        <activity android:name=".activity.AlarmActivity"
-            android:label="闹钟"/>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.showActivity" />
+        <activity android:name=".activity.MouthlyActivity" />
+        <activity
+            android:name=".activity.AlarmActivity"
+            android:label="闹钟" />
         <activity android:name=".activity.MyActivity" />
-
     </application>
 
 </manifest>
