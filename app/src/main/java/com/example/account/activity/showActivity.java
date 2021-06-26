@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -27,7 +29,7 @@ public class showActivity extends AppCompatActivity {
     ListView listView;
     List<Item> mList;
     Button cb;
-    TextView tv;
+    TextView tv,tv_output;
     ImageButton l,r;
     ItemDataBaseHelper idbh;
     int yearin,monthin,dayin;
@@ -40,6 +42,9 @@ public class showActivity extends AppCompatActivity {
         cb=findViewById(R.id.choosebt);
         l=findViewById(R.id.lfbt);
         r=findViewById(R.id.rgbt);
+        tv=findViewById(R.id.tv_note);
+
+        tv_output =findViewById(R.id.tv_output);
         initTime();
         cb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +66,9 @@ public class showActivity extends AppCompatActivity {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        TextView tv=view.findViewById(R.id.tv_note);
-                        note=tv.getText().toString();
+
+                        note = mList.get(position).getRemark();
+                        Log.d("TAG","note:"+note);
                         tipDialog(note);
                     }
                 });
@@ -80,8 +86,8 @@ public class showActivity extends AppCompatActivity {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        TextView tv=view.findViewById(R.id.tv_note);
-                        note=tv.getText().toString();
+                        note = mList.get(position).getRemark();
+                        Log.d("TAG","note:"+note);
                         tipDialog(note);
 
                     }
@@ -94,8 +100,8 @@ public class showActivity extends AppCompatActivity {
         int  mYear = calendar.get(Calendar.YEAR);//年
         int  mMonth = calendar.get(Calendar.MONTH);//月份要加一个一，这个值的初始值是0。不加会日期会少一月。
         int  mDay = calendar.get(Calendar.DAY_OF_MONTH);//日
-        tv=findViewById(R.id.tv_output);
-        tv.setText(mYear+"年"+(mMonth+1)+"月"+mDay+"日");
+
+        tv_output.setText(mYear+"年"+(mMonth+1)+"月"+mDay+"日");
 
         yearin = mYear;
         monthin = mMonth+1;
@@ -103,6 +109,15 @@ public class showActivity extends AppCompatActivity {
         idbh=new ItemDataBaseHelper(showActivity.this);
         mList=idbh.queryItemByDay(mYear,mMonth+1,mDay);
         listView.setAdapter(new ListAdapter(showActivity.this,mList));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                note = mList.get(position).getRemark();
+                Log.d("TAG","note:"+note);
+                tipDialog(note);
+
+            }
+        });
     }
     private void showtime() {
         Calendar calendar = Calendar.getInstance();//调用Calendar类获取年月日
@@ -115,19 +130,18 @@ public class showActivity extends AppCompatActivity {
                 yearin=i;
                 monthin=i1+1;
                 dayin=i2;
-                tv=findViewById(R.id.tv_output);
                 dayin=dayin+0;
                 monthin=monthin+0;
                 yearin=yearin+0;
-                tv.setText(yearin+"年"+monthin+"月"+dayin+"日");
+                tv_output.setText(yearin+"年"+monthin+"月"+dayin+"日");
                 idbh=new ItemDataBaseHelper(showActivity.this);
                 mList=idbh.queryItemByDay(yearin,monthin,dayin);
                 listView.setAdapter(new ListAdapter(showActivity.this,mList));
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        TextView tv=view.findViewById(R.id.tv_note);
-                        note=tv.getText().toString();
+                        note = mList.get(position).getRemark();
+                        Log.d("TAG","note:"+note);
                         tipDialog(note);
 
                     }
@@ -159,4 +173,12 @@ public class showActivity extends AppCompatActivity {
         dialog.show();                              //显示对话框
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent  = new Intent();
+        intent.setClass(showActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -24,7 +24,7 @@ public class ItemDataBaseHelper {
     private static final String PRICE = "price";
     private static final String REMARK = "remark";
     private DBOpenHelper helper;
-    private SQLiteDatabase db;
+    private static SQLiteDatabase db;
 
     private static class DBOpenHelper extends SQLiteOpenHelper {
         private static final String DROP_TABLE = "drop table if exists " + TABLE_NAME;
@@ -42,7 +42,9 @@ public class ItemDataBaseHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_TABLE);
-
+            //init data
+            initData();
+           // db.execSQL("delete  from accounts");
 
         }
 
@@ -62,14 +64,9 @@ public class ItemDataBaseHelper {
         helper = new DBOpenHelper(context);
         db = helper.getWritableDatabase();
 
-
-        //init data
-        initData();
-
-
     }
 
-    private  void initData(){
+    private static void initData(){
         db.execSQL("delete  from accounts");
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624522087589,2.0,\"真开心\")");
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1621868461000,1.0,\"真开心\")");
@@ -171,7 +168,6 @@ public class ItemDataBaseHelper {
     public List<Item> queryItemByDay(int year,int month,int day) {
         long startTime = DateUtil.getStartTimeStampByDay(year,month,day);
         long endTime = DateUtil.getEndTimeStampByDay(year,month,day);
-        Log.d("TAG",startTime+":"+endTime);
         List<Item> items = new ArrayList<>();
         String sql ="select * from "+TABLE_NAME+" where "+ TIME + " between " + startTime + " and " +  endTime + " order by " + TIME;
         Cursor cursor = db.rawQuery(sql,null);
@@ -182,6 +178,7 @@ public class ItemDataBaseHelper {
             item.setType(cursor.getString(cursor.getColumnIndex(TYPE)));
             item.setIncome(cursor.getInt(cursor.getColumnIndex(ISINCOME)) == 1);
             item.setTime(cursor.getLong(cursor.getColumnIndex(TIME)));
+            item.setRemark(cursor.getString(cursor.getColumnIndex(REMARK)));
             items.add(item);
         }
         cursor.close();
