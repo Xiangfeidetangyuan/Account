@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -30,7 +31,7 @@ public class addActivity extends AppCompatActivity {
     private EditText eTRemark;
     private RadioButton rBIncom;
     private RadioButton rBExpenditure;
-
+    private Button btn_remake;
     private ItemDataBaseHelper helper;
 
     @Override
@@ -42,6 +43,7 @@ public class addActivity extends AppCompatActivity {
         eTRemark = (EditText)findViewById(R.id.eTRemark);
         rBIncom = (RadioButton)findViewById(R.id.rBIncome);
         rBExpenditure = (RadioButton)findViewById(R.id.rBExpenditure);
+        btn_remake = findViewById(R.id.button2);
 
         helper = new ItemDataBaseHelper(this);
         //监听器，限制输入最多两位小数**************************
@@ -81,10 +83,17 @@ public class addActivity extends AppCompatActivity {
 
             }
         });
+
+        btn_remake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                remake();
+            }
+        });
     }
 
-    //重置按钮**************************
-    public void remake(View view){
+    //重置**************************
+    public void remake(){
         eTPrice.setText("");
         eTRemark.setText("");
         eTType.setText("");
@@ -140,6 +149,7 @@ public class addActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                     helper.insert(item);
+                    remake();
 
                     /*******************************************/
                     /*****************写入数据库函数*************/
@@ -158,17 +168,13 @@ public class addActivity extends AppCompatActivity {
             dialog.show();
         }
     }
-    //返回按钮**************************
-    public void back(View view){
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
         Intent intent = new Intent();
         intent.setClass(addActivity.this,MainActivity.class);
         startActivity(intent);
         finish();
-
-    /*******************************************/
-    /**************按总体逻辑修改*************/
-    /*******************************************/
     }
 }
