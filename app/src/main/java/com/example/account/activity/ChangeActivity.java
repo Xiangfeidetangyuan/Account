@@ -77,6 +77,7 @@ public class ChangeActivity extends AppCompatActivity {
                         mUserDataBaseOpenHelper.delete(username,password00);
                         mUserDataBaseOpenHelper.add(username, password11);
                         Toast.makeText(ChangeActivity.this,"修改成功",Toast.LENGTH_SHORT).show();
+                        onBackPressed();
                     }
                     else
                         Toast.makeText(ChangeActivity.this,"两次输入密码不一致，请重新输入",Toast.LENGTH_SHORT).show();
@@ -93,4 +94,15 @@ public class ChangeActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent();
+        intent.setClass(ChangeActivity.this,MyActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
