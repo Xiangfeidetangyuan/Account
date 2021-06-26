@@ -50,7 +50,7 @@ public class UserDataBaseOpenHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO user (name,password) VALUES(?,?)",new Object[]{name,password});
     }
     public void delete(String name,String password){
-        db.execSQL("DELETE FROM user WHERE name = AND password ="+name+password);
+        db.execSQL("DELETE FROM user WHERE name =? AND password =?",new Object[]{name,password});
     }
     public void updata(String password){
         db.execSQL("UPDATE user SET password = ?",new Object[]{password});

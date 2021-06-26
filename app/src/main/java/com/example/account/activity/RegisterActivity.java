@@ -84,6 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         //将用户名和密码加入到数据库中
                         mUserDataBaseOpenHelper.add(username, password);
                         Intent intent2 = new Intent(this, MainActivity.class);
+                        intent2.putExtra("username",username);
                         startActivity(intent2);
                         finish();
                         Toast.makeText(this,  "注册成功", Toast.LENGTH_SHORT).show();

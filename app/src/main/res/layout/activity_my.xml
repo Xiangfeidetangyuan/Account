@@ -37,6 +37,35 @@
             android:src="@drawable/you" />
 
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/button2"
+            android:layout_marginLeft="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/change" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textSize="40dp"
+            android:text="修改密码"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="140dp"
+            android:alpha="0.4"
+            android:src="@drawable/you" />
+
+    </LinearLayout>
 
     <TimePicker
         android:id="@+id/timePicker1"

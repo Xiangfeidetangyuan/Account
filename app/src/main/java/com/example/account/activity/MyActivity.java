@@ -26,6 +26,8 @@ public class MyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
         c = Calendar.getInstance();
         c.setTimeInMillis(System.currentTimeMillis());
         timepicker = findViewById(R.id.timePicker1);
@@ -46,6 +48,25 @@ public class MyActivity extends AppCompatActivity {
                 Toast.makeText(MyActivity.this,"提醒设置成功",Toast.LENGTH_SHORT).show();
             }
         });
+        LinearLayout change = findViewById(R.id.change);
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MyActivity.this,ChangeActivity.class);
+                intent.putExtra("username",username);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
     @Override

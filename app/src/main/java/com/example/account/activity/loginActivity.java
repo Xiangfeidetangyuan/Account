@@ -93,6 +93,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                     if (match) {
                         Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(this, MainActivity.class);
+                        intent.putExtra("username",name);
                         startActivity(intent);
                         finish();//销毁此Activity
                     } else {
