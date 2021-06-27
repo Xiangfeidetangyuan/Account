@@ -30,7 +30,7 @@
         android:layout_height="80dp"
         android:gravity="center"
         android:textSize="20sp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_toLeftOf="@+id/tv_money"
         android:text="2020-05-31"/>
 
@@ -40,8 +40,8 @@
         android:layout_height="80dp"
         android:gravity="center"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:textSize="25sp"
+        android:layout_marginRight="5dp"
+        android:textSize="22sp"
         android:textColor="#ffbd27"
         android:text="25"/>
     <TextView
