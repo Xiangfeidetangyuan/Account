@@ -21,7 +21,7 @@ import com.example.account.entity.MounthlyItem;
 import com.example.account.util.DateUtil;
 
 
-public class montlyFragment extends Fragment {
+public class MontlyFragment extends Fragment {
 
     private Spinner spMouth;
     private TextView tvIncomingTotal;
@@ -33,7 +33,7 @@ public class montlyFragment extends Fragment {
     private String[] mounths = {"1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"};
     private int currentMounth;
 
-    public montlyFragment() {
+    public MontlyFragment() {
         // Required empty public constructor
     }
 

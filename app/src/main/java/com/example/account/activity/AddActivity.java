@@ -22,7 +22,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class addActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
 
     private double ERROR = 0.001;
 
@@ -140,7 +140,7 @@ public class addActivity extends AppCompatActivity {
             //实例化item对象，已参照item类****************************
             Item item = new Item(rBIncom.isChecked(), type, time, remark, price);
             //确认框****************************************************************
-            AlertDialog.Builder builder = new AlertDialog.Builder(addActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddActivity.this);
             builder.setTitle("记账确认");
             builder.setMessage(txt);
 
@@ -173,7 +173,7 @@ public class addActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent();
-        intent.setClass(addActivity.this,MainActivity.class);
+        intent.setClass(AddActivity.this,MainActivity.class);
         startActivity(intent);
         finish();
     }

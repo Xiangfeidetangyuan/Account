@@ -36,15 +36,12 @@ public class ItemDataBaseHelper {
         public DBOpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_TABLE);
-            //init data
-            initData();
-           // db.execSQL("delete  from accounts");
+
 
         }
 
@@ -63,7 +60,9 @@ public class ItemDataBaseHelper {
     public ItemDataBaseHelper(Context context) {
         helper = new DBOpenHelper(context);
         db = helper.getWritableDatabase();
-
+        //init data
+        initData();
+        // db.execSQL("delete  from accounts");
     }
 
     private static void initData(){

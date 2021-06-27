@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.showFragment">
+    tools:context=".fragment.ShowFragment">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +25,7 @@
             android:gravity="center">
 
             <ImageButton
-                android:layout_width="110dp"
+                android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/lfbt"
                 android:src="@drawable/left2" />
@@ -37,7 +37,7 @@
                 android:textSize="24sp"
                 android:gravity="center" />
             <ImageButton
-                android:layout_width="110dp"
+                android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/rgbt"
                 android:src="@drawable/right" />

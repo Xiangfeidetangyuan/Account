@@ -8,22 +8,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.account.R;
-import com.example.account.adapter.MonthlyAccountAdapter;
-import com.example.account.dao.ItemDataBaseHelper;
 import com.example.account.fragment.MyFragment;
-import com.example.account.fragment.montlyFragment;
-import com.example.account.fragment.showFragment;
+import com.example.account.fragment.MontlyFragment;
+import com.example.account.fragment.ShowFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.jetbrains.annotations.NotNull;
-
-import java.util.PrimitiveIterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFragment() {
-       fragment_show = new showFragment();
-        fragment_monthly = new montlyFragment();
+       fragment_show = new ShowFragment();
+        fragment_monthly = new MontlyFragment();
         fragment_person = new MyFragment();
         fragments = new Fragment[]{fragment_show,fragment_monthly,fragment_person};
         lastfragment=0;

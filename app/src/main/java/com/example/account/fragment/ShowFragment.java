@@ -21,7 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.account.R;
-import com.example.account.activity.addActivity;
+import com.example.account.activity.AddActivity;
 import com.example.account.adapter.ListAdapter;
 import com.example.account.dao.ItemDataBaseHelper;
 import com.example.account.entity.Item;
@@ -30,7 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.Calendar;
 import java.util.List;
 
-public class showFragment extends Fragment {
+public class ShowFragment extends Fragment {
 
 
     ListView listView;
@@ -43,7 +43,7 @@ public class showFragment extends Fragment {
     String note;
     private FloatingActionButton btn_add;
 
-    public showFragment() {
+    public ShowFragment() {
         // Required empty public constructor
     }
     @Override
@@ -145,7 +145,7 @@ public class showFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent();
-                intent.setClass(getContext(), addActivity.class);
+                intent.setClass(getContext(), AddActivity.class);
                 startActivity(intent);
             }
         });
