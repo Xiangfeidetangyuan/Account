@@ -9,8 +9,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/jizhang"
             android:layout_gravity="center"/>
         <LinearLayout
@@ -33,14 +33,6 @@
                 android:textSize="40dp"
                 android:text="记账提醒"/>
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="140dp"
-                android:alpha="0.4"
-                android:src="@drawable/you" />
-
         </LinearLayout>
         <LinearLayout
             android:id="@+id/change"
@@ -61,14 +53,6 @@
                 android:layout_marginLeft="15dp"
                 android:textSize="40dp"
                 android:text="修改密码"/>
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="140dp"
-                android:alpha="0.4"
-                android:src="@drawable/you" />
 
         </LinearLayout>
 

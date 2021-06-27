@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.zhks.RegisterActivity"
+    tools:context=".activity.RegisterActivity"
     android:background="#eeeeee"
     >
 
@@ -46,8 +46,7 @@
         android:orientation="vertical"
         android:layout_below="@+id/rl_registeractivity_top"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:padding="30dp"
         >
         <!-- 第一个文本编辑框  输入用户名 -->
         <LinearLayout
