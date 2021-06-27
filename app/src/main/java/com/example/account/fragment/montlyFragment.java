@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.account.R;
 import com.example.account.adapter.MonthlyAccountAdapter;
 import com.example.account.entity.MounthlyItem;
+import com.example.account.util.DateUtil;
 
 
 public class montlyFragment extends Fragment {
@@ -30,7 +31,7 @@ public class montlyFragment extends Fragment {
     private ArrayAdapter<String> spAdapter;
     private MounthlyItem itemsByMounth;
     private String[] mounths = {"1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"};
-
+    private int currentMounth;
 
     public montlyFragment() {
         // Required empty public constructor
@@ -48,6 +49,7 @@ public class montlyFragment extends Fragment {
     public void onActivityCreated(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
+        currentMounth= DateUtil.getCurrentMonth();
         itemsByMounth= new MounthlyItem(getContext());
         spAdapter = new ArrayAdapter<String>(getContext(), R.layout.item_sp_mounth,R.id.tv_sp_mounth, mounths);
         spMouth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -64,11 +66,11 @@ public class montlyFragment extends Fragment {
             }
         });
         spMouth.setAdapter(spAdapter);
-        adapter= new MonthlyAccountAdapter(R.layout.item_incoming_outgoing,itemsByMounth.getDataByMounth(1));
+        adapter= new MonthlyAccountAdapter(R.layout.item_incoming_outgoing,itemsByMounth.getDataByMounth(currentMounth));
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         rvMounthItem.setLayoutManager(linearLayoutManager);
         rvMounthItem.setAdapter(adapter);
-        spMouth.setSelection(0,true);
+        spMouth.setSelection(currentMounth-1,true);
     }
 
     private void initView() {

@@ -92,4 +92,5 @@ public class MounthlyItem {
     public void setOutgoingTotals(Map<Integer, Integer> outgoingTotals) {
         this.outgoingTotals = outgoingTotals;
     }
+
 }
