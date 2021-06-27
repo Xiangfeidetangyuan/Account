@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Account">
         <activity android:name=".activity.ChangeActivity" />
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.AlarmActivity"
             android:label="闹钟"></activity>
         <activity android:name=".activity.AddActivity" />
         <activity android:name=".activity.loginActivity">
