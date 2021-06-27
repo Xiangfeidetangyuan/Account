@@ -78,9 +78,9 @@ public class ItemDataBaseHelper {
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1624523087589,12.0,\"真开心\")");
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1624455461000,222.0,\"真开心\")");
 
-        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624362087589,2.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (0,\"红包\",1624362087589,2.0,\"真开心\")");
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624278461000,1.0,\"真开心\")");
-        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624363087589,12.0,\"真开心\")");
+        db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (0,\"红包\",1624363087589,12.0,\"真开心\")");
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"红包\",1624275461000,222.0,\"真开心\")");
 
         db.execSQL("INSERT INTO accounts (IsIncome,type,time,price,remark) VALUES (1,\"工资\",1624122087589,2.0,\"真开心\")");
