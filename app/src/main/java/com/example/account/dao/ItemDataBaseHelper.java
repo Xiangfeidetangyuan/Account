@@ -42,6 +42,9 @@ public class ItemDataBaseHelper {
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_TABLE);
 
+            //init data
+            initData();
+            // db.execSQL("delete  from accounts");
 
         }
 
@@ -60,9 +63,7 @@ public class ItemDataBaseHelper {
     public ItemDataBaseHelper(Context context) {
         helper = new DBOpenHelper(context);
         db = helper.getWritableDatabase();
-        //init data
-        initData();
-        // db.execSQL("delete  from accounts");
+
     }
 
     private static void initData(){
